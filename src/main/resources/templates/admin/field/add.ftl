@@ -36,6 +36,13 @@
                                 <li><a href="lyear_ui_other.html">其他</a></li>
                             </ul>
                         </li>
+                        <li class="nav-item nav-item-has-subnav">
+                            <a href="javascript:void(0)"><i class="mdi mdi-palette"></i>场地管理</a>
+                            <ul class="nav nav-subnav">
+                                <li><a href="/field/list">场地管理界面</a></li>
+                                <li><a href="#">其他</a></li>
+                            </ul>
+                        </li>
                 </nav>
             </div>
 
@@ -52,7 +59,7 @@
                             <span class="lyear-toggler-bar"></span>
                             <span class="lyear-toggler-bar"></span>
                         </div>
-                        <span class="navbar-page-title"> 后台首页 </span>
+                        <span class="navbar-page-title"> 添加场地 </span>
                     </div>
                     <ul class="topbar-right">
                         <li class="dropdown dropdown-profile">
@@ -85,17 +92,17 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
-                            <div class="card-header"><h4>添加用户</h4></div>
+                            <div class="card-header"><h4>添加场地</h4></div>
                             <div class="card-body">
 
-                                <form id="user_add_form" action="add" method="post" class="row">
+                                <form id="field_add_form" action="add" method="post" class="row">
                                     <div class="form-group col-md-12">
-                                        <label for="title">用户名</label>
-                                        <input type="text" class="form-control required" id="username" name="username" value="" placeholder="请输入用户名" tips="请填写用户名" />
+                                        <label for="title">场地类型</label>
+                                        <input type="text" class="form-control required" id="fieldtype" name="fieldtype" value="" placeholder="请输入场地类型" tips="请填写场地类型" />
                                     </div>
                                     <div class="form-group col-md-12">
-                                        <label for="seo_keywords">密码</label>
-                                        <input type="text" class="form-control required" id="password" name="password" value="" placeholder="请输入密码" tips="请填写密码"/>
+                                        <label for="title">场地名称</label>
+                                        <input type="text" class="form-control required" id="fieldname" name="fieldname" value="" placeholder="请输入场地名称" tips="请填写场地名称" />
                                     </div>
                                     <div class="form-group col-md-12">
                                         <button type="button" class="btn btn-primary ajax-post" id="add-form-submit-btn">确 定</button>
@@ -119,19 +126,19 @@
     $(document).ready(function () {
         //提交按钮监听事件
         $("#add-form-submit-btn").click(function () {
-            if(!checkForm("user_add_form")){
+            if(!checkForm("field_add_form")){
                 return;
             }
-            var username = $("#username").val();
-            var password = $("#password").val();
+            var fieldtype = $("#fieldtype").val();
+            var fieldname = $("#fieldname").val();
             $.ajax({
                 url: 'add',
                 type: 'POST',
-                data: {username: username, password: password},
+                data: {fieldtype: fieldtype, fieldname: fieldname},
                 dataType: 'json',
                 success: function (data) {
                     if (data.code == 0) {
-                        showSuccessMsg('用户添加成功',function () {
+                        showSuccessMsg('场地添加成功',function () {
                             window.location.href = 'list';
                         })
                         // window.location.href = 'index';
@@ -140,7 +147,7 @@
                     }
                 },
                 error: function (data) {
-                    alert('网络错误!');
+                    // alert('sth is wrong!');
                 }
             });
         });

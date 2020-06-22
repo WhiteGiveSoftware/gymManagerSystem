@@ -1,11 +1,9 @@
-<!--和增加用户页面一样-->
-
 <!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-    <title>系统设置-管理员用户管理--添加</title>
+    <title>系统设置-场地管理--编辑</title>
     <#include "../common/header.ftl">
 
     <link href="/admin/css/bootstrap.min.css" rel="stylesheet">
@@ -59,7 +57,7 @@
                             <span class="lyear-toggler-bar"></span>
                             <span class="lyear-toggler-bar"></span>
                         </div>
-                        <span class="navbar-page-title"> 添加场地 </span>
+                        <span class="navbar-page-title"> 场地管理 </span>
                     </div>
                     <ul class="topbar-right">
                         <li class="dropdown dropdown-profile">
@@ -72,7 +70,7 @@
                                 <li><a href="lyear_pages_profile.html"><i class="mdi mdi-account"></i> 个人信息</a></li>
                                 <li><a href="lyear_pages_edit_pwd.html"><i class="mdi mdi-lock-outline"></i> 修改密码</a>
                                 </li>
-                                <li><a href="javascript:void(0)"><i class="mdi mdi-delete"></i> 清空缓存</a></li>
+                                <li><a href="javascript:void(alert('下次一定'))"><i class="mdi mdi-delete"></i> 清空缓存</a></li>
 
                                 <li><a href="lyear_pages_login.html"><i class="mdi mdi-logout-variant"></i> 退出登录</a>
                                 </li>
@@ -92,7 +90,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
-                            <div class="card-header"><h4>添加场地</h4></div>
+                            <div class="card-header"><h4>场地编辑</h4></div>
                             <div class="card-body">
 
                                 <form id="field_add_form" action="add" method="post" class="row">
@@ -129,16 +127,17 @@
             if(!checkForm("field_add_form")){
                 return;
             }
+            var id =  $("#id").val();
             var fieldtype = $("#fieldtype").val();
             var fieldname = $("#fieldname").val();
             $.ajax({
-                url: 'add',
+                url: 'edit',
                 type: 'POST',
-                data: {fieldtype: fieldtype, fieldname: fieldname},
+                data: {id: id,fieldtype: fieldtype, fieldname: fieldname},
                 dataType: 'json',
                 success: function (data) {
                     if (data.code == 0) {
-                        showSuccessMsg('场地添加成功',function () {
+                        showSuccessMsg('用户编辑成功',function () {
                             window.location.href = 'list';
                         })
                         // window.location.href = 'index';
@@ -147,7 +146,7 @@
                     }
                 },
                 error: function (data) {
-                    // alert('sth is wrong!');
+                    alert('网络错误!');
                 }
             });
         });

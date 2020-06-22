@@ -66,4 +66,9 @@ public class CodeMsg {
     public static CodeMsg ADMIN_USE_DELETE_ERROR = new CodeMsg(-6055, "用户删除失败，请联系管理员！");
 
 
+    public static CodeMsg ADMIN_FIELD_ADD_ERROR = new CodeMsg(-6005, "场地添加失败！");
+    public static CodeMsg ADMIN_FIELD_ID_EMPTY = new CodeMsg(-6666, "场地ID空");
+
+    public static CodeMsg ADMIN_FIELD_ID_ERROR = new CodeMsg(-6161, "场地ID错误");
+    public static CodeMsg ADMIN_FIELD_DELETE_ERROR = new CodeMsg(-6060, "场地删除失败");
 }

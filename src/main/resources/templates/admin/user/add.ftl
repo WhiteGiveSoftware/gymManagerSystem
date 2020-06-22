@@ -34,6 +34,14 @@
                                 <li><a href="lyear_ui_other.html">其他</a></li>
                             </ul>
                         </li>
+                        <li class="nav-item nav-item-has-subnav">
+                            <a href="javascript:void(0)"><i class="mdi mdi-palette"></i>场地管理</a>
+                            <ul class="nav nav-subnav">
+                                <li><a href="/field/list">场地管理界面</a></li>
+                                <li><a href="#">其他</a></li>
+                            </ul>
+                        </li>
+
                 </nav>
             </div>
 
