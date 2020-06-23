@@ -43,8 +43,8 @@ public class FieldService {
      * @param id
      * @return
      */
-    public Field findByFieldId(Long id){
-        return fieldDao.findByFieldId(id);
+    public Field findById(Long id){
+        return fieldDao.find(id);
     }
 
     /**

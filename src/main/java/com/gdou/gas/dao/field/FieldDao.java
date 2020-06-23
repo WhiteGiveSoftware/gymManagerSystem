@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface FieldDao extends JpaRepository<Field, Long> {
 
-    public Field findByFieldId(Long id);
+    public Field findByFieldName(String fieldname);
 
 
     @Query("select f from Field f where id = :id")

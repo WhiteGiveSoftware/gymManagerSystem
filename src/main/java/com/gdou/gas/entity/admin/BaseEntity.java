@@ -27,7 +27,6 @@ public class BaseEntity implements Serializable {
     private Date creaTime;//创建时间
 
 
-
     @Column(name="update_time",nullable = false)
     @LastModifiedDate
     private Date updateTime;//更新时间

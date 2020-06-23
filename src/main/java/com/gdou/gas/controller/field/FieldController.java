@@ -67,7 +67,7 @@ public class FieldController {
     public String edit(Model model,
                        @RequestParam(name = "id",  required = true) Long id){
         model.addAttribute("fieldList", fieldService.findAll());
-        model.addAttribute("field", fieldService.findByFieldId(id));
+        model.addAttribute("field", fieldService.findById(id));
 
         return  "admin/field/edit";
     }
@@ -123,7 +123,7 @@ public class FieldController {
             Result.error(CodeMsg.DATA_ERROR);
         }
          // 注意此处
-        if(field.getFieldId() == null){
+        if(field.getId() == null){
             Result.error(CodeMsg.ADMIN_FIELD_ID_EMPTY);
         }
 
@@ -132,7 +132,7 @@ public class FieldController {
             return Result.error(validate);
         }
 
-        Field existField = fieldService.findByFieldId(field.getFieldId());
+        Field existField = fieldService.findById(field.getId());
         if(existField == null){
             Result.error(CodeMsg.ADMIN_FIELD_ID_ERROR);
         }

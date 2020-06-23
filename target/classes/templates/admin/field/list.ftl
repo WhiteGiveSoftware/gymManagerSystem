@@ -150,10 +150,10 @@
                                                     <td>
                                                         <label class="lyear-checkbox checkbox-primary">
                                                             <input type="checkbox" name="ids[]"
-                                                                   value="${field.fieldId}"><span></span>
+                                                                   value="${field.id}"><span></span>
                                                         </label>
                                                     </td>
-                                                    <td>${field.fieldId}</td>
+                                                    <td>${field.id}</td>
                                                     <td><b>${field.fieldType}</b></td>
                                                     <td>${field.fieldName}</td>
                                                     <td>${field.isBooked}</td>
