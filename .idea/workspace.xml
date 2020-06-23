@@ -19,18 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b88b8b6b-04dd-4944-9b57-c433109e6a37" name="Default Changelist" comment="增加场地类，DAO，service">
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gdou/gas/entity/equipment/Equipment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gdou/gas/entity/equipment/Rent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gdou/gas/entity/equipment/Repair.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="b88b8b6b-04dd-4944-9b57-c433109e6a37" name="Default Changelist" comment="增加器材实体和DAO类">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gdou/gas/controller/equipment/EquipmentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gdou/gas/controller/equipment/RentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gdou/gas/controller/equipment/RepairController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gdou/gas/service/equipment/EquipmentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gdou/gas/service/equipment/RentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gdou/gas/service/equipment/RepairService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/gas.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gdou/gas/entity/field/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gdou/gas/entity/field/Field.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/gas.kotlin_module" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +82,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/gdou/gas/entity/equipment" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/gdou/gas/controller/equipment" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -98,6 +94,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\IdeaProjects\gymManagerSystem\src\main\java\com\gdou\gas\service\equipment" />
       <recent name="E:\IdeaProjects\gymManagerSystem\src\main\java\com\gdou\gas\dao\equipment" />
       <recent name="E:\IdeaProjects\gymManagerSystem\src\main\java\com\gdou\gas\entity\equipment" />
     </key>
@@ -123,7 +120,7 @@
       <updated>1592683320079</updated>
       <workItem from="1592683324699" duration="13108000" />
       <workItem from="1592907877599" duration="282000" />
-      <workItem from="1592919466377" duration="324000" />
+      <workItem from="1592919466377" duration="943000" />
     </task>
     <task id="LOCAL-00001" summary="增加场地类，DAO，service">
       <created>1592743900666</created>
@@ -132,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592743900666</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="增加器材实体和DAO类">
+      <created>1592920028902</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1592920028902</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,7 +170,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="增加场地类，DAO，service" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加场地类，DAO，service" />
+    <MESSAGE value="增加器材实体和DAO类" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加器材实体和DAO类" />
   </component>
   <component name="WindowStateProjectService">
     <state width="1537" height="270" key="GridCell.Tab.0.bottom" timestamp="1592907006430">
@@ -217,10 +222,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1537" height="270" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1592907006431" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1592908103049">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1592920091782">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1592908103049" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1592920091782" />
     <state x="413" y="199" key="git4idea.merge.GitPullDialog" timestamp="1592919493370">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
