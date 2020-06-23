@@ -123,7 +123,7 @@ public class FieldController {
             Result.error(CodeMsg.DATA_ERROR);
         }
          // 注意此处
-        if(field.getId() == null){
+        if(field.getFieldId() == null){
             Result.error(CodeMsg.ADMIN_FIELD_ID_EMPTY);
         }
 
@@ -132,7 +132,7 @@ public class FieldController {
             return Result.error(validate);
         }
 
-        Field existField = fieldService.findById(field.getId());
+        Field existField = fieldService.findById(field.getFieldId());
         if(existField == null){
             Result.error(CodeMsg.ADMIN_FIELD_ID_ERROR);
         }

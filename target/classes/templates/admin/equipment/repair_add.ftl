@@ -1,11 +1,9 @@
-<!--和增加用户页面一样-->
-
 <!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-    <title>系统设置-管理员用户管理--添加</title>
+    <title>系统设置-器材管理--器材维修管理---添加</title>
     <#include "../common/header.ftl">
 
     <link href="/admin/css/bootstrap.min.css" rel="stylesheet">
@@ -32,24 +30,18 @@
                         <li class="nav-item nav-item-has-subnav active open">
                             <a href="javascript:void(0)"><i class="mdi mdi-palette"></i>系统设置</a>
                             <ul class="nav nav-subnav" >
-                                <li class="active"><a href="/user/list">管理员用户管理</a></li>
+                                <li ><a href="/user/list">管理员用户管理</a></li>
                                 <li class="nav-item nav-item-has-subnav">
                                     <a href="javascript:void(0)"><i class="mdi mdi-palette"></i>器材管理</a>
                                     <ul class="nav nav-subnav">
-                                        <li><a href="/equipment/equipment_list">器材基本管理</a></li>
-                                        <li class="nav-item active"><a href="/equipment/rent_list">器材租用管理</a></li>
+                                        <li class="nav-item active"><a href="/equipment/equipment_list">器材基本管理</a></li>
+                                        <li><a href="/equipment/rent_list">器材租用管理</a></li>
                                         <li><a href="/equipment/repair_list">器材维修管理</a></li>
                                     </ul>
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item nav-item-has-subnav">
-                            <a href="javascript:void(0)"><i class="mdi mdi-palette"></i>场地管理</a>
-                            <ul class="nav nav-subnav">
-                                <li><a href="/field/list">场地管理界面</a></li>
-                                <li><a href="#">其他</a></li>
-                            </ul>
-                        </li>
+                    </ul>
                 </nav>
             </div>
 
@@ -66,7 +58,7 @@
                             <span class="lyear-toggler-bar"></span>
                             <span class="lyear-toggler-bar"></span>
                         </div>
-                        <span class="navbar-page-title"> 添加场地 </span>
+                        <span class="navbar-page-title"> 后台首页 </span>
                     </div>
                     <ul class="topbar-right">
                         <li class="dropdown dropdown-profile">
@@ -99,24 +91,37 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
-                            <div class="card-header"><h4>添加场地</h4></div>
+                            <div class="card-header"><h4>添加维修单</h4></div>
                             <div class="card-body">
 
-                                <form id="field_add_form" action="add" method="post" class="row">
+                                <form id="repair_add_form" action="add" method="post" class="row">
                                     <div class="form-group col-md-12">
-                                        <label for="title">场地类型</label>
-                                        <input type="text" class="form-control required" id="fieldtype" name="fieldtype" value="" placeholder="请输入场地类型" tips="请填写场地类型" />
+                                        <label for="title">报修人</label>
+                                        <input type="text" class="form-control required" id="name" name="name" value="" placeholder="请填写报修人姓名" tips="请填写报修人姓名" />
                                     </div>
                                     <div class="form-group col-md-12">
-                                        <label for="title">场地名称</label>
-                                        <input type="text" class="form-control required" id="fieldname" name="fieldname" value="" placeholder="请输入场地名称" tips="请填写场地名称" />
+                                        <label for="title">电话号码</label>
+                                        <input type="text" class="form-control required" id="tel" name="tel" value="" placeholder="请填写电话号码" tips="请填写电话号码" />
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <label for="title">器材名称</label>
+                                        <input type="text" class="form-control required" id="equipmentname" name="equipmentname" value="" placeholder="请填写器材名称" tips="请填写器材名称" />
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="seo_keywords">维修问题描述</label>
+                                        <input type="text" class="form-control required" id="description" name="description" value="" placeholder="请填写维修问题描述" tips="请填写维修问题描述"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="seo_keywords">状态</label>
+                                        <input type="text" class="form-control required" id="status" name="status" value="" placeholder="请填写维修状态" tips="请填写维修状态"/>
                                     </div>
                                     <div class="form-group col-md-12">
                                         <button type="button" class="btn btn-primary ajax-post" id="add-form-submit-btn">确 定</button>
                                         <button type="button" class="btn btn-default" onclick="javascript:history.back(-1);return false;">返 回</button>
                                     </div>
                                 </form>
-                            </div>
+                             </div>
                         </div>
                     </div>
 
@@ -133,28 +138,31 @@
     $(document).ready(function () {
         //提交按钮监听事件
         $("#add-form-submit-btn").click(function () {
-            if(!checkForm("field_add_form")){
+            if(!checkForm("repair_add_form")){
                 return;
             }
-            var fieldtype = $("#fieldtype").val();
-            var fieldname = $("#fieldname").val();
+            var name = $("#name").val();
+            var tel = $("#tel").val();
+            var equipmentname = $("#equipmentname").val();
+            var description = $("#description").val();
+            var status = $("#status").val();
             $.ajax({
-                url: 'add',
+                url: 'repair_add',
                 type: 'POST',
-                data: {fieldtype: fieldtype, fieldname: fieldname},
+                data: {name: name,tel: tel,equipmentname: equipmentname, description: description,status:status},
                 dataType: 'json',
                 success: function (data) {
                     if (data.code == 0) {
-                        showSuccessMsg('场地添加成功',function () {
-                            window.location.href = 'list';
+                        showSuccessMsg('用户添加成功',function () {
+                            window.location.href = 'repair_list';
                         })
-                        // window.location.href = 'index';
+                       // window.location.href = 'index';
                     } else {
                         showErrorMsg(data.msg);
                     }
                 },
                 error: function (data) {
-                    // alert('sth is wrong!');
+                    alert('网络错误!');
                 }
             });
         });

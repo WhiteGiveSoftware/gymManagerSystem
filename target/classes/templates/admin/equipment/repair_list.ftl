@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-    <title>系统设置-管理员用户管理</title>
+    <title>系统设置-器材管理--器材维修管理</title>
     <#include "../common/header.ftl">
 
     <link href="/admin/css/bootstrap.min.css" rel="stylesheet">
@@ -26,28 +26,22 @@
 
                 <nav class="sidebar-main">
                     <ul class="nav nav-drawer">
-                        <li class="nav-item active"><a href="/system/index"><i class="mdi mdi-home"></i> 后台首页</a></li>
+                        <li class="nav-item active"><a href="index.html"><i class="mdi mdi-home"></i> 后台首页</a></li>
                         <li class="nav-item nav-item-has-subnav active open">
                             <a href="javascript:void(0)"><i class="mdi mdi-palette"></i>系统设置</a>
                             <ul class="nav nav-subnav">
-                                <li class="active"><a href="/field/list">管理员用户管理</a></li>
+                                <li ><a href="/user/list">管理员用户管理</a></li>
                                 <li class="nav-item nav-item-has-subnav">
                                     <a href="javascript:void(0)"><i class="mdi mdi-palette"></i>器材管理</a>
                                     <ul class="nav nav-subnav">
                                         <li><a href="/equipment/equipment_list">器材基本管理</a></li>
-                                        <li class="nav-item active"><a href="/equipment/rent_list">器材租用管理</a></li>
-                                        <li><a href="/equipment/repair_list">器材维修管理</a></li>
+                                        <li ><a href="/equipment/rent_list">器材租用管理</a></li>
+                                        <li class="nav-item active"><a href="/equipment/repair_list">器材维修管理</a></li>
                                     </ul>
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item nav-item-has-subnav">
-                            <a href="javascript:void(alert('wdnmd'))"><i class="mdi mdi-palette"></i>场地管理</a>
-                            <ul class="nav nav-subnav">
-                                <li><a href="#">场地管理界面</a></li>
-                                <li><a href="#">其他</a></li>
-                            </ul>
-                        </li>
+                    </ul>
                 </nav>
             </div>
 
@@ -78,6 +72,7 @@
                                 <li><a href="lyear_pages_edit_pwd.html"><i class="mdi mdi-lock-outline"></i> 修改密码</a>
                                 </li>
                                 <li><a href="javascript:void(0)"><i class="mdi mdi-delete"></i> 清空缓存</a></li>
+
                                 <li><a href="lyear_pages_login.html"><i class="mdi mdi-logout-variant"></i> 退出登录</a>
                                 </li>
                             </ul>
@@ -97,38 +92,33 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-toolbar clearfix">
-<#--                                <form class="pull-right search-bar" method="get" action="list" role="form">-->
-<#--&lt;#&ndash;                                    <div class="input-group">&ndash;&gt;-->
-<#--&lt;#&ndash;                                        <div class="input-group-btn">&ndash;&gt;-->
-<#--&lt;#&ndash;                                            <button class="btn btn-default dropdown-toggle" id="search-btn"&ndash;&gt;-->
-<#--&lt;#&ndash;                                                    data-toggle="dropdown" type="button" aria-haspopup="true"&ndash;&gt;-->
-<#--&lt;#&ndash;                                                    aria-expanded="false">&ndash;&gt;-->
-<#--&lt;#&ndash;                                                用户名 <span class="caret"></span>&ndash;&gt;-->
-<#--&lt;#&ndash;                                            </button>&ndash;&gt;-->
-<#--&lt;#&ndash;                                            <ul class="dropdown-menu">&ndash;&gt;-->
-<#--&lt;#&ndash;                                                <li><a tabindex="-1" href="javascript:void(0)"&ndash;&gt;-->
-<#--&lt;#&ndash;                                                       data-field="title">用户名</a></li>&ndash;&gt;-->
-<#--&lt;#&ndash;                                            </ul>&ndash;&gt;-->
-<#--&lt;#&ndash;                                        </div>&ndash;&gt;-->
-<#--&lt;#&ndash;                                        <input type="text" class="form-control" value="${username!""}" name="username"&ndash;&gt;-->
-<#--&lt;#&ndash;                                               placeholder="请输入用户名">&ndash;&gt;-->
-<#--&lt;#&ndash;                                        <span class="input-group-btn">&ndash;&gt;-->
-<#--&lt;#&ndash;                      <button class="btn btn-primary" type="submit">搜索</button>&ndash;&gt;-->
-<#--&lt;#&ndash;                    </span>&ndash;&gt;-->
-<#--&lt;#&ndash;                                    </div>&ndash;&gt;-->
-<#--                                </form>-->
+                                <form class="pull-right search-bar" method="get" action="repair_list" role="form">
+                                    <div class="input-group">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-default dropdown-toggle" id="search-btn"
+                                                    data-toggle="dropdown" type="button" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                维修状态 <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a tabindex="-1" href="javascript:void(0)"
+                                                       data-field="title">维修状态</a></li>
+                                            </ul>
+                                        </div>
+                                        <input type="text" class="form-control" value="${name!""}" name="name"
+                                               placeholder="请输入维修状态">
+                                        <span class="input-group-btn">
+                      <button class="btn btn-primary" type="submit">搜索</button>
+                    </span>
+                                    </div>
+                                </form>
                                 <div class="toolbar-btn-action">
-                                    <a class="btn btn-primary m-r-5" href="/field/add">
-                                        <i class="mdi mdi-plus"></i>
+                                    <a class="btn btn-primary m-r-5" href="/equipment/repair_add"><i class="mdi mdi-plus"></i>
                                         新增</a>
-                                    <!--留意JavaScript模块中的函数-->
-                                    <a class="btn btn-primary m-r-5" href="javascript:edit()">
-                                        <i class="mdi mdi-grease-pencil"></i>
-                                        编辑</a>
-                                    <!--留意JavaScript模块中的函数-->
-                                    <a class="btn btn-primary m-r-5" href="javascript:del()">
-                                        <i class="mdi mdi-close"></i>
-                                        删除</a>
+                                    <a class="btn btn-primary m-r-5" href="javascript:edit()"><i
+                                                class="mdi mdi-grease-pencil"></i> 编辑</a>
+                                    <a class="btn btn-primary m-r-5" href="javascript:del()"><i
+                                                class="mdi mdi-close"></i> 删除</a>
 
                                 </div>
                             </div>
@@ -143,31 +133,36 @@
                                                     <input type="checkbox" id="check-all"><span></span>
                                                 </label>
                                             </th>
-                                            <th>场地编号</th>
-                                            <th>场地类型</th>
-                                            <th>场地名称</th>
-                                            <th>是否被预定(0表示未被预定)</th>
-
+                                            <th>编号</th>
+                                            <th>报修人</th>
+                                            <th>电话号码</th>
+                                            <th>器材名</th>
+                                            <th>维修问题描述</th>
+                                            <th>创建时间</th>
+                                            <th>状态</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <#if pageBean.content?size gt 0>
-                                            <#list  pageBean.content as field>
+                                            <#list  pageBean.content as repair>
                                                 <tr>
                                                     <td>
                                                         <label class="lyear-checkbox checkbox-primary">
                                                             <input type="checkbox" name="ids[]"
-                                                                   value="${field.id}"><span></span>
+                                                                   value="${repair.id}"><span></span>
                                                         </label>
                                                     </td>
-                                                    <td>${field.id}</td>
-                                                    <td><b>${field.fieldType}</b></td>
-                                                    <td>${field.fieldName}</td>
-                                                    <td>${field.isBooked}</td>
+                                                    <td>${repair_index+1}</td>
+                                                    <td>${repair.name}</td>
+                                                    <td>${repair.tel}</td>
+                                                    <td><b>${repair.equipmentname}</b></td>
+                                                    <td>${repair.description}</td>
+                                                    <td>${repair.creaTime}</td>
+                                                    <td>${repair.status}</td>
                                                 </tr>
                                             </#list>
                                         <#else>
-                                            <tr align="center"><td colspan="9">这里空空如也！<a href="list">显示全部数据</a></td> </tr>
+                                            <tr align="center"><td colspan="9">这里空空如也！<a href="repair_list">显示全部数据</a></td> </tr>
                                         </#if>
                                         </tbody>
                                     </table>
@@ -177,21 +172,21 @@
                                         <#if pageBean.currentPage == 1>
                                             <li class="disabled"><span>«</span></li>
                                         <#else>
-                                            <li><a href="list?name=${name!""}&currentPage=1">«</a></li>
+                                            <li><a href="repair_list?name=${name!""}&currentPage=1">«</a></li>
                                         </#if>
                                         <#list pageBean.currentShowPage as showPage>
                                             <#if pageBean.currentPage == showPage>
                                                 <li class="active"><span>${showPage}</span></li>
                                             <#else>
                                                 <li>
-                                                    <a href="list?name=${name!""}&currentPage=${showPage}">${showPage}</a>
+                                                    <a href="repair_list?name=${name!""}&currentPage=${showPage}">${showPage}</a>
                                                 </li>
                                             </#if>
                                         </#list>
                                         <#if pageBean.currentPage == pageBean.totalPage>
                                             <li class="disabled"><span>»</span></li>
                                         <#else>
-                                            <li><a href="list?name=${name!""}&currentPage=${pageBean.totalPage}">»</a>
+                                            <li><a href="repair_list?name=${name!""}&currentPage=${pageBean.totalPage}">»</a>
                                             </li>
                                         </#if>
                                         <li><span>共${pageBean.totalPage}页,${pageBean.total}条数据</span></li>
@@ -209,8 +204,6 @@
         <!--End 页面主要内容-->
     </div>
 </div>
-
-
 <#include "../common/footer.ftl">
 <script type="text/javascript">
     $(document).ready(function () {
@@ -249,19 +242,19 @@
             showWarningMsg('请选择一条数据进行编辑！');
             return;
         }
-        window.location.href = 'edit?id=' + $("input[type='checkbox']:checked").val();
+        window.location.href = 'repair_edit?id=' + $("input[type='checkbox']:checked").val();
     }
 
     //调用删除方法
     function deleteReq(id) {
         $.ajax({
-            url: 'delete',
+            url: 'repair_delete',
             type: 'POST',
             data: {id: id},
             dataType: 'json',
             success: function (data) {
                 if (data.code == 0) {
-                    showSuccessMsg('用户删除成功!', function () {
+                    showSuccessMsg('租用单删除成功!', function () {
                         $("input[type='checkbox']:checked").parents("tr").remove();
                     })
                 } else {

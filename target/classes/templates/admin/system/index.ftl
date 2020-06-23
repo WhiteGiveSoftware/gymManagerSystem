@@ -30,7 +30,14 @@
                             <a href="javascript:void(0)"><i class="mdi mdi-palette"></i>你麻痹的</a>
                             <ul class="nav nav-subnav">
                                 <li><a href="/user/list">管理员用户管理</a></li>
-                                <li><a href="#">其他</a></li>
+                                <li class="nav-item nav-item-has-subnav">
+                                    <a href="javascript:void(0)"><i class="mdi mdi-palette"></i>器材管理</a>
+                                    <ul class="nav nav-subnav">
+                                        <li><a href="/equipment/equipment_list">器材基本管理</a></li>
+                                        <li class="nav-item active"><a href="/equipment/rent_list">器材租用管理</a></li>
+                                        <li><a href="/equipment/repair_list">器材维修管理</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
                 </nav>
