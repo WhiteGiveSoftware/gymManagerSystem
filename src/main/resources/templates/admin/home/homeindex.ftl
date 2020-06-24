@@ -17,7 +17,41 @@
 <body>
 <div class="lyear-layout-web">
     <div class="lyear-layout-container">
+                <!--左侧导航-->
+                <aside class="lyear-layout-sidebar">
 
+
+                    <div class="lyear-layout-sidebar-scroll">
+
+                        <nav class="sidebar-main">
+                            <ul class="nav nav-drawer">
+                                <li class="nav-item active"><a href="/system/index"><i class="mdi mdi-home"></i> 前台首页</a></li>
+                                <li class="nav-item nav-item-has-subnav active open">
+                                    <a href="javascript:void(0)"><i class="mdi mdi-palette"></i>功能选择</a>
+                                    <ul class="nav nav-subnav">
+
+                                        <li class="nav-item nav-item-has-subnav">
+                                            <a href="javascript:void(0)"><i class="mdi mdi-palette"></i>器材选择</a>
+                                            <ul class="nav nav-subnav">
+                                                <li><a href="/equipment/equipment_list">器材信息</a></li>
+                                                <li class="nav-item active"><a href="/equipment/rent_list">器材租用</a></li>
+                                                <li><a href="/equipment/repair_list">器材维修</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item nav-item-has-subnav">
+                                    <a href="javascript:void(alert('wdnmd'))"><i class="mdi mdi-palette"></i>场地选择</a>
+                                    <ul class="nav nav-subnav">
+                                        <li><a href="#">场地信息</a></li>
+                                        <li><a href="#">场地租用</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                </aside>
         <!--End 左侧导航-->
 
         <!--头部信息-->
@@ -49,7 +83,17 @@
             </nav>
         </header>
         <!--End 头部信息-->
+        <!--页面主要内容-->
+        <main class="lyear-layout-content">
 
+            <div class="container-fluid">
+                <h1>显示器材信息</h1>
+                <div><span class="show">LOOK!${name!"xiaohao"} </span></div>
+                <!--前台首页主要内容-->
+
+            </div>
+
+        </main>
 
         <!--End 页面主要内容-->
     </div>
