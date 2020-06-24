@@ -102,13 +102,14 @@
                             <div class="card-body">
 
                                 <form id="field_add_form" action="add" method="post" class="row">
+                                    <input type="hidden" name="id" id="id" value="${field.id}">
                                     <div class="form-group col-md-12">
                                         <label for="title">场地类型</label>
-                                        <input type="text" class="form-control required" id="fieldtype" name="fieldtype" value="" placeholder="请输入场地类型" tips="请填写场地类型" />
+                                        <input type="text" class="form-control required" id="fieldType" name="fieldType" value="" placeholder="请输入场地类型" tips="请填写场地类型" />
                                     </div>
                                     <div class="form-group col-md-12">
                                         <label for="title">场地名称</label>
-                                        <input type="text" class="form-control required" id="fieldname" name="fieldname" value="" placeholder="请输入场地名称" tips="请填写场地名称" />
+                                        <input type="text" class="form-control required" id="fieldName" name="fieldName" value="" placeholder="请输入场地名称" tips="请填写场地名称" />
                                     </div>
                                     <div class="form-group col-md-12">
                                         <button type="button" class="btn btn-primary ajax-post" id="add-form-submit-btn">确 定</button>
@@ -135,20 +136,20 @@
             if(!checkForm("field_add_form")){
                 return;
             }
-            var id =  $("#id").val();
-            var fieldtype = $("#fieldtype").val();
-            var fieldname = $("#fieldname").val();
+            // 此处id可能获取不到
+            var id = $("#id").val();
+            var fieldType = $("#fieldType").val();
+            var fieldName = $("#fieldName").val();
             $.ajax({
                 url: 'edit',
                 type: 'POST',
-                data: {id: id,fieldtype: fieldtype, fieldname: fieldname},
+                data: {id: id,fieldType: fieldType, fieldName: fieldName},
                 dataType: 'json',
                 success: function (data) {
                     if (data.code == 0) {
-                        showSuccessMsg('用户编辑成功',function () {
+                        showSuccessMsg('场地编辑成功',function () {
                             window.location.href = 'list';
                         })
-                        // window.location.href = 'index';
                     } else {
                         showErrorMsg(data.msg);
                     }

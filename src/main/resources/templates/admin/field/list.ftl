@@ -98,35 +98,35 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-toolbar clearfix">
-<#--                                <form class="pull-right search-bar" method="get" action="list" role="form">-->
-<#--&lt;#&ndash;                                    <div class="input-group">&ndash;&gt;-->
-<#--&lt;#&ndash;                                        <div class="input-group-btn">&ndash;&gt;-->
-<#--&lt;#&ndash;                                            <button class="btn btn-default dropdown-toggle" id="search-btn"&ndash;&gt;-->
-<#--&lt;#&ndash;                                                    data-toggle="dropdown" type="button" aria-haspopup="true"&ndash;&gt;-->
-<#--&lt;#&ndash;                                                    aria-expanded="false">&ndash;&gt;-->
-<#--&lt;#&ndash;                                                用户名 <span class="caret"></span>&ndash;&gt;-->
-<#--&lt;#&ndash;                                            </button>&ndash;&gt;-->
-<#--&lt;#&ndash;                                            <ul class="dropdown-menu">&ndash;&gt;-->
-<#--&lt;#&ndash;                                                <li><a tabindex="-1" href="javascript:void(0)"&ndash;&gt;-->
-<#--&lt;#&ndash;                                                       data-field="title">用户名</a></li>&ndash;&gt;-->
-<#--&lt;#&ndash;                                            </ul>&ndash;&gt;-->
-<#--&lt;#&ndash;                                        </div>&ndash;&gt;-->
-<#--&lt;#&ndash;                                        <input type="text" class="form-control" value="${username!""}" name="username"&ndash;&gt;-->
-<#--&lt;#&ndash;                                               placeholder="请输入用户名">&ndash;&gt;-->
-<#--&lt;#&ndash;                                        <span class="input-group-btn">&ndash;&gt;-->
-<#--&lt;#&ndash;                      <button class="btn btn-primary" type="submit">搜索</button>&ndash;&gt;-->
-<#--&lt;#&ndash;                    </span>&ndash;&gt;-->
-<#--&lt;#&ndash;                                    </div>&ndash;&gt;-->
-<#--                                </form>-->
+                                <form class="pull-right search-bar" method="get" action="list" role="form">
+                                    <div class="input-group">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-default dropdown-toggle" id="search-btn"
+                                                    data-toggle="dropdown" type="button" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                场地名 <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a tabindex="-1" href="javascript:void(0)"
+                                                       data-field="title">场地名</a></li>
+                                            </ul>
+                                        </div>
+                                        <input type="text" class="form-control" value="${fieldname!""}" name="fieldname"
+                                               placeholder="请输入场地名">
+                                        <span class="input-group-btn">
+                                             <button class="btn btn-primary" type="submit">搜索</button>
+                                        </span>
+                                    </div>
+                                </form>
                                 <div class="toolbar-btn-action">
                                     <a class="btn btn-primary m-r-5" href="/field/add">
                                         <i class="mdi mdi-plus"></i>
                                         新增</a>
-                                    <!--留意JavaScript模块中的函数-->
+
                                     <a class="btn btn-primary m-r-5" href="javascript:edit()">
                                         <i class="mdi mdi-grease-pencil"></i>
                                         编辑</a>
-                                    <!--留意JavaScript模块中的函数-->
+
                                     <a class="btn btn-primary m-r-5" href="javascript:del()">
                                         <i class="mdi mdi-close"></i>
                                         删除</a>

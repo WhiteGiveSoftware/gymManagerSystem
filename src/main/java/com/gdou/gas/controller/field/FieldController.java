@@ -1,16 +1,11 @@
 package com.gdou.gas.controller.field;
 
-import com.gdou.gas.annotion.ValidateEntity;
 import com.gdou.gas.entity.admin.OperaterLog;
 import com.gdou.gas.entity.admin.User;
 import com.gdou.gas.entity.field.Field;
 import com.gdou.gas.service.admin.OperaterLogService;
-import com.gdou.gas.service.admin.UserService;
 import com.gdou.gas.service.field.FieldService;
 import com.gdou.gas.util.*;
-import com.sun.org.apache.xpath.internal.operations.Bool;
-import org.apache.commons.logging.Log;
-import org.aspectj.apache.bcel.classfile.Code;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,8 +16,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
-import java.util.List;
-import java.util.logging.Logger;
 
 
 @Controller
@@ -129,19 +122,9 @@ public class FieldController {
         if(field == null){
             Result.error(CodeMsg.DATA_ERROR);
         }
-         // 注意此处
         if(field.getId() == null){
             Result.error(CodeMsg.ADMIN_FIELD_ID_EMPTY);
         }
-
-//        CodeMsg validate = ValidateEntityUtil.validate(field);
-//        if(validate.getCode() != CodeMsg.SUCCESS.getCode()){
-//            return Result.error(validate);
-//        }
-        // 如何获取id?
-
-//        List<Field> list = (List<Field>)request.getSession().getAttribute("fieldlist");
-
         Field existField = fieldService.find(field.getId());
         if(existField == null){
             Result.error(CodeMsg.ADMIN_FIELD_ID_ERROR);
@@ -160,12 +143,14 @@ public class FieldController {
     /**
      * 删除场地
      */
+
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    @ResponseBody
     public Result<Boolean> delete(HttpServletRequest request,
                                    @RequestParam(name = "id", required = true) Long id){
         try{
             fieldService.delete(id);
         }catch (Exception e){
-            e.printStackTrace();
             return Result.error(CodeMsg.ADMIN_FIELD_DELETE_ERROR);
         }
         return Result.success(true);

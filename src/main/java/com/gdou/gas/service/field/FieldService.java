@@ -32,7 +32,8 @@ public class FieldService {
      * 分页查找
      */
     public PageBean<Field> findByField(Field field, PageBean<Field> pageBean){
-        ExampleMatcher withMatcher = ExampleMatcher.matching().withMatcher("id", ExampleMatcher.GenericPropertyMatchers.contains());
+        ExampleMatcher withMatcher = ExampleMatcher.matching().withMatcher("id",
+                ExampleMatcher.GenericPropertyMatchers.contains());
         Example<Field> example =  Example.of(field, withMatcher);
         Pageable pageable = PageRequest.of(pageBean.getCurrentPage()-1, pageBean.getPageSize());
         Page<Field> findAll =  fieldDao.findAll(example, pageable);
