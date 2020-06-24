@@ -15,6 +15,7 @@
     <script type="text/javascript" src="/admin/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/admin/js/perfect-scrollbar.min.js"></script>
     <script type="text/javascript" src="/admin/js/main.min.js"></script>
+    <script type="text/javascript" src="/admin/js/common.js"></script>
 </head>
 
 <body>
@@ -129,12 +130,12 @@
             if(!checkForm("field_add_form")){
                 return;
             }
-            var fieldtype = $("#fieldtype").val();
-            var fieldname = $("#fieldname").val();
+            var fieldType = $("#fieldtype").val();
+            var fieldName = $("#fieldname").val();
             $.ajax({
                 url: 'add',
                 type: 'POST',
-                data: {fieldtype: fieldtype, fieldname: fieldname},
+                data: {fieldType: fieldType, fieldName: fieldName},
                 dataType: 'json',
                 success: function (data) {
                     if (data.code == 0) {
@@ -147,7 +148,7 @@
                     }
                 },
                 error: function (data) {
-                    // alert('sth is wrong!');
+                    alert('sth is wrong!');
                 }
             });
         });

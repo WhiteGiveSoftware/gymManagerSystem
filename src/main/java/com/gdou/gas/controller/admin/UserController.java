@@ -103,11 +103,17 @@ public class UserController {
         if (user.getId() == null) {
             Result.error(CodeMsg.ADMIN_USER_ID_EMPTY);
         }
+
+
         //用统一验证实体方法验证是否合法
         CodeMsg validate = ValidateEntityUtil.validate(user);
         if (validate.getCode() != CodeMsg.SUCCESS.getCode()) {
             return Result.error(validate);
         }
+
+
+//        System.out.println("*******************"+user.getId()+"*****************");
+
         User existUser = userService.find(user.getId());
         if (existUser == null) {
             Result.error(CodeMsg.ADMIN_USER_ID_ERROR);

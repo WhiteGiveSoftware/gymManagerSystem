@@ -9,6 +9,7 @@ import com.gdou.gas.service.admin.UserService;
 import com.gdou.gas.service.field.FieldService;
 import com.gdou.gas.util.*;
 import com.sun.org.apache.xpath.internal.operations.Bool;
+import org.apache.commons.logging.Log;
 import org.aspectj.apache.bcel.classfile.Code;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
+import java.util.List;
+import java.util.logging.Logger;
+
 
 @Controller
 @RequestMapping("/field")
@@ -67,7 +71,7 @@ public class FieldController {
     public String edit(Model model,
                        @RequestParam(name = "id",  required = true) Long id){
         model.addAttribute("fieldList", fieldService.findAll());
-        model.addAttribute("field", fieldService.findById(id));
+        model.addAttribute("field", fieldService.find(id));
 
         return  "admin/field/edit";
     }
@@ -101,24 +105,27 @@ public class FieldController {
         if (fieldService.save(field) == null){
             Result.error(CodeMsg.ADMIN_FIELD_ADD_ERROR);
         }
-
+        request.getSession().setAttribute("field", field);
         Field f = (Field)request.getSession().getAttribute("field");
         User u = (User)request.getSession().getAttribute("user");
         OperaterLog operaterLog = new OperaterLog();
         operaterLog.setOperator(u.getUsername());
         operaterLog.setContent("用户【"+u.getUsername()+"】于【"+ StringUtil.getFormatterDate(new Date(), "yyyy-MM-dd HH:mm:ss") + "】添加了场地"+f.getFieldName());
         operaterLogSer.save(operaterLog);
-
         return Result.success(true);
     }
 
     /**
-     * post表单数据
+     *
+     * 修改场地信息
      */
 
     @RequestMapping(value="/edit", method = RequestMethod.POST)
     @ResponseBody
+    //field是前端传入的实体类
+    //existField是选中已存在的要修改的场地，浏览器路径正确显示选中的场地ID，前端无值显示
     public Result<Boolean> edit(HttpServletRequest request, Field field){
+//        request.getSession().setAttribute("fieldlist", fieldService.findAll());
         if(field == null){
             Result.error(CodeMsg.DATA_ERROR);
         }
@@ -127,16 +134,20 @@ public class FieldController {
             Result.error(CodeMsg.ADMIN_FIELD_ID_EMPTY);
         }
 
-        CodeMsg validate = ValidateEntityUtil.validate(field);
-        if(validate.getCode() != CodeMsg.SUCCESS.getCode()){
-            return Result.error(validate);
-        }
+//        CodeMsg validate = ValidateEntityUtil.validate(field);
+//        if(validate.getCode() != CodeMsg.SUCCESS.getCode()){
+//            return Result.error(validate);
+//        }
+        // 如何获取id?
 
-        Field existField = fieldService.findById(field.getId());
+//        List<Field> list = (List<Field>)request.getSession().getAttribute("fieldlist");
+
+        Field existField = fieldService.find(field.getId());
         if(existField == null){
             Result.error(CodeMsg.ADMIN_FIELD_ID_ERROR);
         }
 
+        // 此处开始把内容写入数据库，existField为空
         existField.setFieldName(field.getFieldName());
         existField.setFieldType(field.getFieldType());
         if(fieldService.save(existField) == null){
@@ -149,7 +160,7 @@ public class FieldController {
     /**
      * 删除场地
      */
-    public  Result<Boolean> delete(HttpServletRequest request,
+    public Result<Boolean> delete(HttpServletRequest request,
                                    @RequestParam(name = "id", required = true) Long id){
         try{
             fieldService.delete(id);

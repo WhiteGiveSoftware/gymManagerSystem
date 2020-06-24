@@ -9,10 +9,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface FieldDao extends JpaRepository<Field, Long> {
 
-    public Field findByFieldName(String fieldname);
+    Field findByFieldName(String fieldname);
 
 
     @Query("select f from Field f where id = :id")
-    public Field find(@Param("id")Long id);
+    Field find(@Param("id")Long id);
 
 }

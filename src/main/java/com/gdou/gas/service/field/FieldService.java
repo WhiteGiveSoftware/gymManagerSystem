@@ -18,11 +18,16 @@ public class FieldService {
     /**
      * 获取所有的场地信息
      */
-
     public List<Field> findAll(){
         return fieldDao.findAll();
     }
 
+    /**
+     *
+     */
+    public Field findByFieldName(String fieldName){
+        return fieldDao.findByFieldName(fieldName);
+    }
     /**
      * 分页查找
      */
@@ -43,7 +48,7 @@ public class FieldService {
      * @param id
      * @return
      */
-    public Field findById(Long id){
+    public Field find(Long id){
         return fieldDao.find(id);
     }
 
